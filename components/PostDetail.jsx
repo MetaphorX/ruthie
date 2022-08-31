@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import moment from "moment";
 
@@ -58,10 +59,18 @@ const PostDetail = ({ post }) => {
   };
 
   return (
+    <>
+    <Head>
+          <title>{post.title}</title>
+          <meta name="description" content="Summies blog" />
+
+
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
     <div className="text-black bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md mb-6">
         <img
-          src={post.featuredImage.url}
+          src={post.featuredImage?.url}
           alt={post.title}
           className="object-top h-full w-full rounded-t-lg"
         />
@@ -110,6 +119,7 @@ const PostDetail = ({ post }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
